@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delight Laundry Services · Fresh clothes. Happy you.</title>
+    <!-- Fonts & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9fbfc;
+            font-family: 'Open Sans', sans-serif;
+            color: #1e2b3c;
+            line-height: 1.5;
+        }
+
+        :root {
+            --navy: #1f2e4a;
+            --soft-white: #f5f7fa;
+            --fresh-aqua: #4aa3a2;
+            --gold-accent: #c6a15b;
+            --warm-grey: #e6e9ee;
+            --text-dark: #1a2635;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        h1, h2, h3, .h1, .h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; font-weight: 600; margin-bottom: 1.5rem; }
+        h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: var(--fresh-aqua);
+            margin-top: 0.5rem;
+            border-radius: 4px;
+        }
+        h3 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.75rem; }
+
+        .btn {
+            display: inline-block;
+            background: var(--fresh-aqua);
+            color: white;
+            font-weight: 600;
+            padding: 0.9rem 2.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(74, 163, 162, 0.25);
+        }
+        .btn:hover {
+            background: #1f2e4a;
+            color: white;
+            box-shadow: 0 8px 16px rgba(31,46,74,0.2);
+            transform: translateY(-2px);
+        }
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-wa:hover { background: #128C7E; }
+
+        /* header with actual logo from folder */
+        .top-bar {
+            background: white;
+            padding: 0.8rem 0;
+            border-bottom: 2px solid var(--fresh-aqua);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .logo-image {
+            height: 70px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            display: block;
+        }
+        .logo-text-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+        .logo-tagline {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: var(--fresh-aqua);
+            letter-spacing: 0.3px;
+        }
+        .desktop-nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            margin-left: 2.5rem;
+            text-decoration: none;
+            color: var(--navy);
+            transition: 0.2s;
+        }
+        .desktop-nav a:hover { color: var(--fresh-aqua); }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f5fa 100%);
+            border-radius: 36px;
+            margin: 2rem 0 3rem;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 20px 30px -10px rgba(31,46,74,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-content { flex: 1 1 400px; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(74,163,162,0.12);
+            color: var(--navy);
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--fresh-aqua);
+        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 0.75rem; }
+        .hero-highlight { color: var(--fresh-aqua); }
+        .hero p { font-size: 1.3rem; font-weight: 300; max-width: 550px; margin: 1.2rem 0 2rem; }
+        .hero-stats { display: flex; gap: 2.5rem; margin-top: 2rem; }
+        .stat-item { font-family: 'Montserrat', sans-serif; }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--navy); }
+
+        /* service cards */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: 0.2s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+            border: 1px solid rgba(198,161,91,0.1);
+            cursor: default;
+        }
+        .service-card i { font-size: 3rem; color: var(--fresh-aqua); margin-bottom: 0.8rem; }
+        .service-card h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--navy); font-size: 1.3rem; }
+
+        /* feature banner */
+        .feature-banner {
+            background: var(--navy);
+            color: white;
+            border-radius: 40px;
+            padding: 3rem 2.5rem;
+            margin: 3.5rem 0;
+            background-image: linear-gradient(145deg, #1f2e4a, #142232);
+        }
+        .feature-banner h2 { color: white; }
+        .feature-banner h2:after { background: var(--gold-accent); }
+        .feature-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            flex: 1 1 180px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .feature-item span {
+            background: var(--fresh-aqua);
+            color: var(--navy);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        /* contact row */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--soft-white);
+            border-radius: 48px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        .contact-info { flex: 2 1 300px; }
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+        }
+        .map-placeholder {
+            background: #e0e7ef;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px dashed var(--navy);
+        }
+
+        /* booking modal (functional) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-card {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            padding: 2.5rem;
+            border-radius: 48px;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.2);
+        }
+        .modal-card h3 { margin-bottom: 1rem; }
+        .modal-card input, .modal-card select, .modal-card textarea {
+            width: 100%;
+            padding: 0.9rem;
+            margin: 0.5rem 0 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .modal-close {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .powered-signature {
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--gold-accent);
+            text-align: center;
+            color: var(--navy);
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: #4a5f73;
+            border-top: 2px solid var(--warm-grey);
+            margin-top: 3rem;
+        }
+        hr { border: 1px solid rgba(198,161,91,0.15); margin: 2rem 0; }
+        .small-note { font-size: 0.9rem; color: #5a6f82; }
+        
+        /* Logo fallback styling */
+        .logo-fallback {
+            background: var(--navy);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- MODAL: booking popup (functional) -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-card">
+            <span class="modal-close" id="closeModalBtn">&times;</span>
+            <h3 style="color: var(--navy);">📅 Schedule a pickup</h3>
+            <form id="pickupForm">
+                <label>Full name</label>
+                <input type="text" id="nameInput" placeholder="e.g. Prof. Adebayo" required>
+                <label>Phone number</label>
+                <input type="tel" id="phoneInput" placeholder="07033263571" required>
+                <label>Service type</label>
+                <select id="serviceSelect">
+                    <option>Washing</option>
+                    <option>Dry Cleaning</option>
+                    <option>Leather Cleaning</option>
+                    <option>Pickup & Delivery only</option>
+                </select>
+                <label>Pickup address / notes</label>
+                <textarea id="addressInput" rows="2" placeholder="OAU campus, hostel, etc."></textarea>
+                <button type="submit" class="btn" style="width:100%;">✓ Confirm booking</button>
+                <p style="font-size:0.8rem; margin-top:0.5rem;">We'll reply via WhatsApp within minutes.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- HEADER with actual logo from /logo folder -->
+    <div class="top-bar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1.5rem;">
+            <div class="logo-area">
+                <!-- LOGO FROM FOLDER: Update the src path to match your actual logo filename -->
+                <img src="logo/delight laundry logo display.png" alt="Delight Laundry Services" class="logo-image" onerror="this.onerror=null; this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+                <div id="logoFallback" class="logo-fallback" style="display: none;">D</div>
+                <div class="logo-text-block">
+                    <span class="logo-main">Delight <span style="color: var(--fresh-aqua);">Laundry</span></span>
+                    <span class="logo-tagline"><i class="fas fa-leaf" style="color: var(--gold-accent);"></i> fresh clothes · happy you</span>
+                </div>
+            </div>
+            <div class="desktop-nav">
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="#" id="bookNavBtn" style="background: var(--fresh-aqua); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; margin-left: 2rem;">Book now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Hero section -->
+        <div class="hero">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-star"></i> Professional care for garments that matter</span>
+                <h1>Fresh clothes.<br><span class="hero-highlight">Peace of mind.</span></h1>
+                <p>Seamless pickup & delivery, eco‑friendly practices, premium dry cleaning – trusted in Ile‑Ife.</p>
+                <a href="#" class="btn" id="heroBookBtn"><i class="fas fa-truck"></i> Book a pickup →</a>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">500+</span> <br> happy lecturers</div>
+                    <div class="stat-item"><span class="stat-number">24h</span> <br> express option</div>
+                </div>
+            </div>
+            <div class="hero-image" style="flex:0 0 260px; background: var(--navy); border-radius: 40px; padding:2rem; color:white; text-align:center; background-image: radial-gradient(circle at 30% 30%, #3f5a7a, #1a2635);">
+                <i class="fas fa-tshirt" style="font-size:5rem;"></i>
+                <p style="margin-top:1rem; font-weight:300;">👔 quality • care • trust</p>
+                <div style="background: var(--gold-accent); width:60px; height:4px; margin:1rem auto;"></div>
+                <p><i class="fas fa-water"></i> eco-friendly</p>
+            </div>
+        </div>
+
+        <!-- Services grid (functional click to book) -->
+        <h2 id="services">Our professional services</h2>
+        <div class="service-grid">
+            <div class="service-card" data-service="Washing"><i class="fas fa-soap"></i><h4>Washing</h4></div>
+            <div class="service-card" data-service="Dry Cleaning"><i class="fas fa-shirt"></i><h4>Dry Cleaning</h4></div>
+            <div class="service-card" data-service="Leather Cleaning"><i class="fas fa-mitten"></i><h4>Leather Cleaning</h4></div>
+            <div class="service-card" data-service="Pickup & Delivery"><i class="fas fa-motorcycle"></i><h4>Pickup & Delivery</h4></div>
+        </div>
+
+        <!-- Feature banner -->
+        <div class="feature-banner">
+            <h2>Quality · Convenience · Eco‑friendly</h2>
+            <div class="feature-flex">
+                <div class="feature-item"><span><i class="fas fa-check"></i></span> premium fabric care</div>
+                <div class="feature-item"><span><i class="fas fa-check"></i></span> free pickup & drop</div>
+                <div class="feature-item"><span><i class="fas fa-check"></i></span> eco‑safe detergents</div>
+                <div class="feature-item"><span><i class="fas fa-check"></i></span> scented finish</div>
+            </div>
+        </div>
+
+        <!-- Contact & CTA row (fully functional) -->
+        <div class="contact-row" id="contact">
+            <div class="contact-info">
+                <h2 style="margin-top:0;">Talk to us</h2>
+                <p style="font-size:1.2rem;"><i class="fas fa-phone-alt"></i> <strong>07033263571</strong> (call & WhatsApp)</p>
+                <p><i class="fas fa-envelope"></i> Olusolajoseph009@gmail.com</p>
+                <p><i class="fas fa-map-pin"></i> Shop 4, Block 34, Zone B, OAU Central Market, Ile‑Ife.</p>
+                <a href="https://wa.me/2347033263571?text=Hello%20Delight%20Laundry!%20I'd%20like%20to%20book%20a%20pickup." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                <div style="margin-top:2rem;">
+                    <span style="background: var(--gold-accent); color: #1e2b3c; padding: 0.3rem 1rem; border-radius: 40px; font-weight:600;">client labels: lecturer · student · royal · bulk</span>
+                </div>
+            </div>
+            <div style="flex:1; min-width:240px;">
+                <div class="map-placeholder" id="mapLink" style="cursor:pointer;" title="Click to open Google Maps">
+                    <i class="fas fa-map-marked-alt" style="font-size:2rem;"></i><br>
+                    🗺️ OAU Central Market, Ile‑Ife<br>
+                    <span style="font-size:0.9rem;">(tap to open directions)</span>
+                </div>
+                <div style="background:white; border-radius:24px; padding:1.2rem; margin-top:1.5rem;">
+                    <p style="font-weight:700; font-family:Montserrat;"><i class="fas fa-crown" style="color: var(--gold-accent);"></i> subscription plans</p>
+                    <p>for lecturers, royals & bulk — ask us!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- trust markers & final CTA -->
+        <hr>
+        <div style="display:flex; flex-wrap:wrap; gap:1.8rem; justify-content:center;">
+            <span style="background: white; border-radius:60px; padding:0.4rem 1.5rem;"><i class="fas fa-tag"></i> color‑coded tagging</span>
+            <span style="background: white; border-radius:60px; padding:0.4rem 1.5rem;"><i class="fas fa-gift"></i> premium packaging</span>
+            <span style="background: white; border-radius:60px; padding:0.4rem 1.5rem;"><i class="fas fa-crown"></i> priority royal</span>
+            <span style="background: white; border-radius:60px; padding:0.4rem 1.5rem;"><i class="fas fa-clock"></i> delivery tracking</span>
+        </div>
+        <hr>
+
+        <!-- closing CTA -->
+        <div style="text-align:center; background:#ffffff; border-radius:80px; padding:3rem 2rem; margin:2rem 0;">
+            <h2 style="font-size:2.6rem;">Fresh clothes. <span style="color:var(--fresh-aqua);">Happy you.</span></h2>
+            <p style="font-size:1.3rem;">Trusted laundry service in Ile‑Ife & its axis.</p>
+            <a href="#" class="btn" id="footerBookBtn" style="margin-top:1.5rem;"><i class="fas fa-calendar-check"></i> order pickup</a>
+            <p style="margin-top:2rem;"><i class="fas fa-phone"></i> 07033263571  – 8am–7pm</p>
+        </div>
+
+        <!-- POWERED BY BrandingWithMO signature (exactly as requested) -->
+        <div class="powered-signature">
+            ⚡ powered by <strong>BrandingWithMO</strong>  <i class="fas fa-registered" style="font-size:0.7rem;"></i>  +2348100007877
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <p>© 2025 Delight Laundry Services — Fresh clothes. Peace of mind. Professional care.</p>
+            <p>Shop 4, Block 34, Zone B, OAU Central Market, Ile‑Ife · 07033263571</p>
+            <p><i class="fab fa-instagram"></i> <i class="fab fa-whatsapp"></i> <i class="fab fa-google"></i> </p>
+        </div>
+    </div>
+
+    <!-- JavaScript: make all features functional -->
+    <script>
+        (function() {
+            // ---- MODAL logic (book now popup) ----
+            const modal = document.getElementById('bookingModal');
+            const closeBtn = document.getElementById('closeModalBtn');
+            const bookNav = document.getElementById('bookNavBtn');
+            const heroBook = document.getElementById('heroBookBtn');
+            const footerBook = document.getElementById('footerBookBtn');
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            function openModal(service) {
+                if (service) {
+                    const select = document.getElementById('serviceSelect');
+                    if (select) select.value = service;
+                }
+                modal.style.display = 'flex';
+            }
+            function closeModal() { modal.style.display = 'none'; }
+
+            if (bookNav) bookNav.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+            if (heroBook) heroBook.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+            if (footerBook) footerBook.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            // clicking on a service card pre-fills service
+            serviceCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const service = card.getAttribute('data-service') || 'Washing';
+                    openModal(service);
+                });
+            });
+
+            // modal background click to close
+            window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+            // ---- FORM submission simulation (functional feedback) ----
+            const form = document.getElementById('pickupForm');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('nameInput')?.value.trim();
+                    if (!name) { alert('Please enter your name'); return; }
+                    alert(`✅ Thanks ${name}! Your pickup request is received. We'll WhatsApp you shortly.`);
+                    closeModal();
+                    form.reset();  // optional reset
+                });
+            }
+
+            // ---- map link (functional: opens Google Maps) ----
+            const mapDiv = document.getElementById('mapLink');
+            if (mapDiv) {
+                mapDiv.addEventListener('click', () => {
+                    const encoded = encodeURIComponent("Shop 4, Block 34, Zone B, OAU Central Market, Ile-Ife, Osun State, Nigeria");
+                    window.open(`https://www.google.com/maps/search/?api=1&query=${encoded}`, '_blank');
+                });
+            }
+
+            // ---- make logo area interactive (refresh / home) ----
+            const logoContainer = document.querySelector('.logo-area');
+            if (logoContainer) {
+                logoContainer.style.cursor = 'pointer';
+                logoContainer.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            }
+
+            // ---- highlight for nav smooth scroll (optional) ----
+            document.querySelectorAll('.desktop-nav a[href="#services"], .desktop-nav a[href="#contact"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        })();
+    </script>
+    <!-- ensure modal hidden by default -->
+    <style>
+        .modal-overlay { display: none; }
+    </style>
+</body>
+</html>
